@@ -1,0 +1,25 @@
+{
+  "name": "empleosya",
+  "version": "1.0.0",
+  "description": "Portal de empleos con NOde.js Handlebars y Mongoose",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tedesco8/empleosya.git"
+  },
+  "author": "Pablo Martín Tedesco Rodríguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tedesco8/empleosya/issues"
+  },
+  "homepage": "https://github.com/tedesco8/empleosya#readme",
+  "dependencies": {
+    "express-handlebars": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
