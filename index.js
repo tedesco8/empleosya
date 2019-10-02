@@ -13,7 +13,8 @@ const app = express();
 //habilitar handlebars como templay
 app.engine('handlebars',
     exphbs({
-        defaultLayout: 'layout'
+        defaultLayout: 'layout',
+        helpers: require('./helpers/handlebars')
     })
 );
 app.set('view engine', 'handlebars');
