@@ -13,7 +13,7 @@ const vacantesSchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    ubucacion: {
+    ubicacion: {
         type: String,
         trim: true,
         required: 'La ubicación es obligatoria'
