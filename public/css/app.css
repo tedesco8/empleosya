@@ -182,7 +182,7 @@ h3 {
 .caja .puesto,
 .caja .etiqueta {
     font-weight: 700;
-    color: #7e3cd4;
+    color: #331a55;
     font-size: 2.6rem;
     margin: 0;
     text-align: left;
@@ -264,7 +264,7 @@ h3 {
     margin: 4rem  auto 0 auto; 
 }
 .default-form h3 {
-    color: #616065;
+    color: #222224;
     font-size: 2.4rem;
     margin-bottom: 3rem;
     text-transform: uppercase;

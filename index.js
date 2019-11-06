@@ -7,8 +7,15 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const bodyParser = require('body-parser');
+
 require('dotenv').config({ path: 'variables.env'});
+
 const app = express();
+
+//hbilitar bodyParser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 //habilitar handlebars como templay
 app.engine('handlebars',

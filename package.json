@@ -1,10 +1,12 @@
 {
   "name": "empleosya",
   "version": "1.0.0",
-  "description": "Portal de empleos con NOde.js Handlebars y Mongoose",
+  "description": "Portal de empleos con Node.js Handlebars y Mongoose",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index"
+    "dev": "nodemon ./index",
+    "start": "concurrently \"npm run dev\" \"npm run watch\" ",
+    "watch": "webpack --w --mode development"
   },
   "repository": {
     "type": "git",
@@ -17,9 +19,11 @@
   },
   "homepage": "https://github.com/tedesco8/empleosya#readme",
   "dependencies": {
+    "concurrently": "^5.0.0",
     "connect-mongo": "^3.0.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
+    "express": "^4.17.1",
     "express-handlebars": "^3.1.0",
     "express-session": "^1.16.2",
     "mongoose": "^5.7.1",
@@ -27,6 +31,11 @@
     "slug": "^1.1.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.2"
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "nodemon": "^1.19.2",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
