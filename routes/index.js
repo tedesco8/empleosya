@@ -12,7 +12,10 @@ module.exports = () => {
     router.get('/vacantes/editar/:url', vacantesController.formEditarVacante);
     router.post('/vacantes/editar/:url', vacantesController.editarVacante);
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
-    router.post('/crear-cuenta', usuariosController.crearUsuario);
+    router.post('/crear-cuenta',
+        usuariosController.validarRegistro,
+        usuariosController.crearUsuario
+    );
 
     return router;
 }

@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const bodyParser = require('body-parser');
+const expressValidator = require('express-validator');
+const flash = require('connect-flash');
 
 require('dotenv').config({ path: 'variables.env'});
 
@@ -16,6 +18,9 @@ const app = express();
 //hbilitar bodyParser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+
+//validación de campos
+app.use(expressValidator());
 
 //habilitar handlebars como templay
 app.engine('handlebars',
@@ -38,6 +43,15 @@ app.use(session({
     saveUninitialized: false,
     store: new MongoStore({mongooseConnection: mongoose.connection})
 }));
+
+//alertas y flash messages
+app.use(flash());
+
+//crear middleware
+app.use((req, res, next) => {
+    res.locals.mensajes = req.flash();
+    next();
+});
 
 app.use('/', router());
 
