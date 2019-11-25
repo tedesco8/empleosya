@@ -19,15 +19,24 @@ exports.validarRegistro = (req, res, next) => {
     //validar
     req.checkBody('nombre', 'El nombre es obligatorio').notEmpty();
     req.checkBody('email', 'Debe ingresar un email valido').isEmail();
-    req.checkBody('password', 'El password no puede ir vacio').notEmpty();
+    req.checkBody('password', 'El password no puede ir vacia').notEmpty();
     req.checkBody('confirmar', 'Confirmar password, no debe ir vacio').notEmpty();
     req.checkBody('confirmar', 'Debe ingresar el mismo password').equals(req.body.password);
 
     const errores = req.validationErrors();
 
-    console.log(errores);
+    if(errores){
+        req.flash('error', errores.map(error => error.msg));
 
-    return;
+        res.render('crear-cuenta', {
+            nombrePagina: 'Crea tu cuenta en EmpleosYa',
+            tagline: 'Publica tus vacantes de forma gratuita',
+            mensajes: req.flash()
+        });
+        return;
+    }
+
+    next();
 }
 
 exports.crearUsuario = async (req, res, next) => {

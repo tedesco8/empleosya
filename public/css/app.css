@@ -10,6 +10,10 @@ body {
     font-family: 'Rubik', sans-serif;
     font-size: 1.6rem;
 }
+details {
+    padding: 15px;
+    margin-bottom: 20px;
+}
 p {
     font-size: 1.6rem;
 }
