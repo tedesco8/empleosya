@@ -42,9 +42,18 @@ exports.validarRegistro = (req, res, next) => {
 exports.crearUsuario = async (req, res, next) => {
     const usuario = new Usuarios(req.body);
 
-    const nuevoUsuario = await usuario.save();
-
+    try {
+        await usuario.save();
+        res.redirect('/iniciar-sesion');
+    } catch (error) {
+        req.flash('error', error);
+        res.redirect('/crear-cuenta');
+    }
     if(!nuevoUsuario) return next();
-    
-    res.redirect('/iniciar-sesion');
+}
+
+exports.formIniciarSesion = (req, res) => {
+    res.render('iniciar-sesion', {
+        nombrePagina: 'Iniciar Sesión EmpleosYa'
+    })
 }

@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const skills = document.querySelector('.lista-conocimientos');
 
-        //limpiar las alertas
+        //limpiar las alertas (Funciona mal, cambiar por sweet alert)
         let alertas = document.querySelector('.alertas');
 
         if(alertas) {
             limpiarAlertas();
-            
+            console.log('entro');
         }
         console.log(alertas);
 

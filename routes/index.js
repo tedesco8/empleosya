@@ -16,6 +16,6 @@ module.exports = () => {
         usuariosController.validarRegistro,
         usuariosController.crearUsuario
     );
-
+    router.get('/iniciar-sesion', usuariosController.formIniciarSesion);
     return router;
 }
