@@ -24,6 +24,14 @@ exports.mostrarPanel = async (req, res) => {
     res.render('administracion', {
         nombrePagina: 'Panel de Administración',
         tagline: 'Crea y Administra tus Vacantes desde aquí',
+        cerrarSesion: true,
+        nombre: req.user.nombre,
         vacantes
     })
+}
+
+exports.cerrarSesion = (req, res) => {
+    req.logout();
+    req.flash('correcto', 'Cerraste seisón correctamente')
+    return res.redirect('iniciar-sesion');
 }
