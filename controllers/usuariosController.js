@@ -57,3 +57,23 @@ exports.formIniciarSesion = (req, res) => {
         nombrePagina: 'Inicia sesión en EmpleosYa'
     })
 }
+
+exports.formEditarPerfil = (req, res) => {
+    res.render('editar-perfil', {
+        nombrePagina: 'Edita tu perfil en EmpleosYa',
+        usuario: req.user
+    })
+}
+
+exports.editarPerfil = async(req, res) => {
+    const usuario = await Usuarios.findById(req.user._id);
+
+    usuario.nombre = req.body.nombre;
+    usuario.email = req.body.email;
+    if(req.body.password) {
+        usuario.password = req.body.password
+    }
+    await usuario.save();
+    req.flash('correcto', 'Cambios guardados correctamente');
+    res.redirect('/administracion');
+}
