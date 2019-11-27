@@ -13,6 +13,7 @@ module.exports = () => {
     );
     router.post('/vacantes/nueva', 
         authController.verificarUsuario,
+        vacantesController.validarVacante,
         vacantesController.agregarVacante
     );
     router.get('/vacantes/:url', vacantesController.mostrarVacante);
@@ -22,6 +23,7 @@ module.exports = () => {
     );
     router.post('/vacantes/editar/:url', 
         authController.verificarUsuario,
+        vacantesController.validarVacante,
         vacantesController.editarVacante
     );
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
@@ -45,6 +47,7 @@ module.exports = () => {
     );
     router.post('/editar-perfil',
         authController.verificarUsuario,
+        usuariosController.validarPerfil,
         usuariosController.editarPerfil
     )
 
