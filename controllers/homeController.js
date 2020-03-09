@@ -8,10 +8,10 @@ exports.mostrarTrabajos = async (req, res, next) => {
     if(!vacantes) return next();
 
     res.render('home', {
-        nombrePagina: 'EmpleosYa',
-        tagline: 'Encuentra y publica empleos. EmpleosYa es la manera más rápida de conectar profesionales',
+        nombrePagina : 'EmpleosYa',
+        tagline: 'Encuentra y Pública Trabajos para Desarrolladores Web',
         barra: true,
         boton: true,
         vacantes
     })
-} 
+}
