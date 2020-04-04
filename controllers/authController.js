@@ -27,7 +27,7 @@ exports.verificarUsuario = (req, res, next) => {
 
 exports.mostrarPanel = async (req, res) => {
 
-    // consultar el usuario autenticado
+    // consultar el usuario autenticado, filtra las vacantes del autor
     const vacantes = await Vacante.find({ autor: req.user._id });
     
     res.render('administracion', {

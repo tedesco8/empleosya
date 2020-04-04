@@ -29,6 +29,11 @@ module.exports = {
             })
         }
         return alertas.fn().html = html;
+    },
+    mostrarBotonEditar: () => {
+        const authController = require('../controllers/authController');
+        authController.verificarUsuario
+        return next();
     }
 
 }
